@@ -1,8 +1,8 @@
 @echo off
 setlocal
 cd /d "%~dp0"
-if exist "dist\CaminataAleatoria.exe" (
-    start "" "dist\CaminataAleatoria.exe"
+if exist "dist\Caminata_Aleatoria.exe" (
+    start "" "dist\Caminata_Aleatoria.exe"
     exit /b 0
 )
 where py >nul 2>nul

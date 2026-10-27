@@ -1,5 +1,6 @@
 """Interfaz Tkinter; trabajo numérico fuera del hilo de eventos."""
 import csv
+import sys
 import queue
 import threading
 import tkinter as tk
@@ -28,7 +29,7 @@ class Aplicacion(ttk.Frame):
         super().__init__(root, padding=16)
         self.pack(fill='both', expand=True)
         root.title('Actividad 4.3 · Caminata aleatoria')
-        root.geometry('960x650')
+        root.geometry('1080x650')
         self.resultados = []
         self.cola = queue.Queue()
         self.ocupado = False
@@ -44,6 +45,8 @@ class Aplicacion(ttk.Frame):
         self.boton = ttk.Button(botones, text='Ejecutar simulación', command=self.ejecutar); self.boton.pack(side='left')
         self.exportar_boton = ttk.Button(botones, text='Exportar última simulación', command=self.exportar, state='disabled'); self.exportar_boton.pack(side='left', padx=8)
         self.resumen_boton = ttk.Button(botones, text='Exportar resumen de sesión', command=self.exportar_resumen, state='disabled'); self.resumen_boton.pack(side='left')
+        self.grafica_boton = ttk.Button(botones, text='Guardar gráfica PNG', command=self.exportar_grafica, state='disabled')
+        self.grafica_boton.pack(side='left', padx=8)
         self.estado = tk.StringVar(value='Listo. La tabla muestra todas las distancias de la última simulación.')
         ttk.Label(self, textvariable=self.estado, wraplength=900).pack(anchor='w', pady=8)
         self.progreso = ttk.Progressbar(self, mode='indeterminate'); self.progreso.pack(fill='x')
@@ -91,8 +94,17 @@ class Aplicacion(ttk.Frame):
                 for i, distancia in enumerate(resultado.maximas, 1):
                     self.tabla.insert('', 'end', values=(i, f'{distancia:.6f}'))
                 self.estado.set(f'{resultado.dimension}D · {resultado.pasos:,} pasos · {resultado.repeticiones:,} repeticiones · semilla {resultado.semilla} | Promedio máximo: {resultado.promedio:.6f} unidades | Tiempo: {resultado.segundos:.4f} s')
-                self.exportar_boton.configure(state='normal'); self.resumen_boton.configure(state='normal')
+                self.exportar_boton.configure(state='normal'); self.resumen_boton.configure(state='normal'); self.grafica_boton.configure(state='normal')
         self.after(100, self.recibir)
+
+    def exportar_grafica(self):
+        nombre = filedialog.asksaveasfilename(defaultextension='.png', filetypes=[('Imagen PNG', '*.png')], initialfile='grafica_simulacion.png')
+        if nombre:
+            try:
+                from graficas_simulacion import guardar_grafica
+                guardar_grafica(self.resultados[-1], nombre)
+            except Exception as error:
+                messagebox.showerror('No se pudo guardar la gráfica', str(error))
 
     def exportar(self):
         nombre = filedialog.asksaveasfilename(defaultextension='.csv', filetypes=[('CSV', '*.csv')], initialfile='distancias_simulacion.csv')
@@ -113,6 +125,9 @@ class Aplicacion(ttk.Frame):
 
 
 if __name__ == '__main__':
+    if len(sys.argv) == 3 and sys.argv[1] == '--verificar-ejecutable':
+        from comprobacion_ejecutable import verificar
+        raise SystemExit(verificar(Path(sys.argv[2])))
     root = tk.Tk()
     Aplicacion(root)
     root.mainloop()

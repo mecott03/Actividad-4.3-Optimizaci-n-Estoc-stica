@@ -218,3 +218,8 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Paquetes reproducibles: se publican desde GitHub Actions
+/ENTREGA_ACTIVIDAD_4.3/
+/ENTREGA_ACTIVIDAD_4.3.zip
+/paquete/

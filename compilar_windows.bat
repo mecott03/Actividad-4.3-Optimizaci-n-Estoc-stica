@@ -9,9 +9,9 @@ if errorlevel 1 goto error
 if errorlevel 1 goto error
 .venv\Scripts\python.exe -m unittest discover -s tests -v
 if errorlevel 1 goto error
-.venv\Scripts\python.exe -m PyInstaller --noconfirm --clean --onefile --windowed --name CaminataAleatoria main.py
+.venv\Scripts\python.exe -m PyInstaller --noconfirm --clean --onefile --windowed --name Caminata_Aleatoria main.py
 if errorlevel 1 goto error
-echo Ejecutable generado en dist\CaminataAleatoria.exe
+echo Ejecutable generado en dist\Caminata_Aleatoria.exe
 pause
 exit /b 0
 :error

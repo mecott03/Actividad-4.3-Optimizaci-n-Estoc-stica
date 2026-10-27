@@ -1,3 +1,24 @@
+# Entrega final para Windows (sin instalar Python)
+
+El `.bat` anterior necesitaba Python instalado; el mensaje `No suitable Python runtime found` proviene de ese requisito. **El paquete final se compila en Windows con GitHub Actions**, no con ese `.bat`.
+
+1. Abre [Entrega final Windows en Actions](https://github.com/mecott03/Actividad-4.3-Optimizaci-n-Estoc-stica/actions/workflows/entrega-windows.yml).
+2. La compilación se activa al subir los cambios a `main`. También puedes pulsar **Run workflow → Run workflow**.
+3. Espera un resultado verde. En **Releases** descarga `ENTREGA_ACTIVIDAD_4.3.zip`. También está en **Artifacts → ENTREGA_ACTIVIDAD_4.3** de la ejecución (GitHub envuelve el archivo en otro ZIP).
+4. Extrae la carpeta y abre **Caminata_Aleatoria.exe**. No requiere instalar Python, dependencias ni Internet.
+
+[Descargar ZIP de la última entrega publicada](https://github.com/mecott03/Actividad-4.3-Optimizaci-n-Estoc-stica/releases/latest/download/ENTREGA_ACTIVIDAD_4.3.zip) — el enlace solo funcionará después de una compilación y publicación correctas.
+
+La carpeta final contiene únicamente el ejecutable, `resultados/`, `graficas/`, `codigo_fuente/` e `INSTRUCCIONES.txt`. Se conservan los datos originales. La interfaz permite guardar CSV y generar un PNG de las distancias de la última simulación mediante un selector de ubicación. No escribe en la carpeta temporal del ejecutable.
+
+El workflow ejecuta las pruebas, compila un PE de interfaz gráfica con PyInstaller, traslada el `.exe` a una ruta con espacios y lo abre desde otra carpeta con `PATH` sin Python ni variables de su entorno. Verifica la GUI real, resultados 1D/2D, tabla, promedio, exportación CSV, PNG y rechazo de entradas inválidas. `verificacion-windows` conserva la evidencia JSON de esa ejecución. El runner tiene Python para compilar: esta prueba aísla el binario de su búsqueda en PATH, pero no equivale a desinstalar Python físicamente del runner.
+
+El empaquetador exige un PE sin consola y un informe correcto del mismo binario ejecutado en Windows, identificado por SHA-256. **No crea el ZIP final sin un ejecutable probado.** La carpeta de entrega se genera, no se mantiene como duplicado de los archivos originales en Git. No se incluyen cachés, `.venv`, compilación ni pruebas en el paquete final.
+
+Para desarrolladores: `python preparar_entrega.py --exe dist/Caminata_Aleatoria.exe --evidencia ruta/verificacion_windows.json --salida paquete`. `--sin-ejecutable` prepara solamente una carpeta claramente marcada como incompleta y no crea el ZIP final.
+
+---
+
 # Actividad 4.3 – Caminata Aleatoria y Validaciones Estadísticas
 
 Simulador de movimiento browniano discreto para Optimización Estocástica. La partícula inicia en el origen y realiza pasos unitarios sobre los ejes de Zᵈ. En cada paso se elige uniformemente una de las 2d direcciones: eje `dirección // 2` y signo positivo/negativo según su paridad. Se registra la mayor distancia euclidiana al origen durante **toda** la caminata, no solo la distancia final.
@@ -8,7 +29,7 @@ Simulador de movimiento browniano discreto para Optimización Estocástica. La p
 2. Instala **Python 3.12 de python.org**, incluyendo Tcl/Tk y el lanzador `py`.
 3. Haz doble clic en **`ejecutar.bat`**. La primera ejecución crea `.venv` e instala las dos dependencias con Internet. Después abre la interfaz sin editar código. Si existe el ejecutable compilado, el script lo abre directamente.
 
-El archivo `.bat` requiere Python: **no es un ejecutable autónomo**. No se incluye un `.exe` compilado en Linux. Para generarlo en Windows, haz doble clic en **`compilar_windows.bat`**: instala PyInstaller 6.16.0, ejecuta las pruebas y construye `dist/CaminataAleatoria.exe`. Prueba ese archivo en Windows antes de entregarlo. Puedes distribuirlo junto con este repositorio; el destinatario del `.exe` no requiere Python. PyInstaller no compila Windows desde Linux.
+El archivo `.bat` requiere Python: **no es un ejecutable autónomo**. La copia del código fuente no incluye un `.exe` compilado en Linux; descarga el paquete Windows desde Releases o Actions. Para generarlo en Windows, haz doble clic en **`compilar_windows.bat`**: instala PyInstaller 6.16.0, ejecuta las pruebas y construye `dist/Caminata_Aleatoria.exe`. Prueba ese archivo en Windows antes de entregarlo. Puedes distribuirlo junto con este repositorio; el destinatario del `.exe` no requiere Python. PyInstaller no compila Windows desde Linux.
 
 ## Instalación manual (Windows, Linux o macOS)
 
