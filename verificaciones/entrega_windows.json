@@ -1,0 +1,28 @@
+{
+  "workflow": "https://github.com/mecott03/Actividad-4.3-Optimizaci-n-Estoc-stica/actions/runs/40445307450",
+  "estado_observado": "Success",
+  "commit_compilado": "ec2e94f",
+  "descarga": "https://github.com/mecott03/Actividad-4.3-Optimizaci-n-Estoc-stica/releases/download/entrega-windows-1/ENTREGA_ACTIVIDAD_4.3.zip",
+  "verificacion_windows": "El workflow terminó correctamente: pruebas automatizadas, ejecución del binario trasladado con PATH sin Python, GUI 1D/2D, cálculo contra trayectoria, tabla, promedios, CSV individuales y resumen, PNG y entradas inválidas.",
+  "limite_verificacion": "El runner Windows tiene Python para compilar. Se ejecutó el binario con PATH sin Python y sin variables PYTHON/Tcl/Tk heredadas; no se desinstaló físicamente Python del runner. No se probó en la computadora personal del usuario.",
+  "comprobaciones_locales": {
+    "pruebas_aprobadas": 13,
+    "zip_integro": true,
+    "estructura_exacta": true,
+    "exe_pe_x64_sin_consola": true,
+    "dependencias_integradas": [
+      "python312.dll",
+      "Tcl/Tk",
+      "NumPy",
+      "Matplotlib"
+    ],
+    "datos_originales_conservados": true,
+    "graficas_png_identicas": true,
+    "nota_texto": "El checkout de Windows convierte LF a CRLF; los datos y código son idénticos al normalizar saltos de línea."
+  },
+  "sha256_exe": "cbc92045b2b1741e8556516fa628b42c05d69c7b9c95013aa65fb3e8224770ef",
+  "sha256_zip": "971c1e8017602be547fb2258cbf890954d40ed4471697e7a4921989c01adcea1",
+  "bytes_exe": 43456615,
+  "bytes_zip": 43732948,
+  "advertencia_workflow": "Una advertencia de actualización del runtime Node de las acciones; no impidió ninguna prueba ni la publicación."
+}

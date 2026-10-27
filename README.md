@@ -1,5 +1,7 @@
 # Entrega final para Windows (sin instalar Python)
 
+**Entrega compilada y verificada:** [ENTREGA_ACTIVIDAD_4.3.zip](https://github.com/mecott03/Actividad-4.3-Optimizaci-n-Estoc-stica/releases/download/entrega-windows-1/ENTREGA_ACTIVIDAD_4.3.zip). Descarga este paquete de Releases; el ZIP del código fuente no contiene el ejecutable. [Evidencia de verificación](verificaciones/entrega_windows.json).
+
 El `.bat` anterior necesitaba Python instalado; el mensaje `No suitable Python runtime found` proviene de ese requisito. **El paquete final se compila en Windows con GitHub Actions**, no con ese `.bat`.
 
 1. Abre [Entrega final Windows en Actions](https://github.com/mecott03/Actividad-4.3-Optimizaci-n-Estoc-stica/actions/workflows/entrega-windows.yml).
