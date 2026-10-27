@@ -1,0 +1,34 @@
+[
+  {
+    "dimension": 1,
+    "muestras": 200000,
+    "semilla": 731,
+    "frecuencias": [
+      99751,
+      100249
+    ],
+    "chi_cuadrado": 1.24002,
+    "grados_libertad": 1,
+    "alfa": 0.001,
+    "umbral": 10.8275661707,
+    "no_rechaza_uniformidad": true,
+    "interpretacion": "No rechazar no demuestra uniformidad; la equiprobabilidad también se verifica por construcción del muestreo entero."
+  },
+  {
+    "dimension": 2,
+    "muestras": 200000,
+    "semilla": 731,
+    "frecuencias": [
+      50021,
+      49730,
+      50289,
+      49960
+    ],
+    "chi_cuadrado": 3.1692400000000003,
+    "grados_libertad": 3,
+    "alfa": 0.001,
+    "umbral": 16.2662361962,
+    "no_rechaza_uniformidad": true,
+    "interpretacion": "No rechazar no demuestra uniformidad; la equiprobabilidad también se verifica por construcción del muestreo entero."
+  }
+]

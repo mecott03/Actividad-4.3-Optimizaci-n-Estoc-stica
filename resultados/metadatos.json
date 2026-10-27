@@ -1,0 +1,9 @@
+{
+  "python": "3.12.14",
+  "numpy": "2.3.5",
+  "matplotlib": "3.10.8",
+  "plataforma": "Linux-6.18.55-x86_64-with-glibc2.41",
+  "generador": "numpy.random.default_rng / PCG64",
+  "semilla": 2026,
+  "nota": "Misma semilla por configuración: repeticiones anidadas, no muestras independientes entre configuraciones. Tiempos medidos, variables según máquina."
+}

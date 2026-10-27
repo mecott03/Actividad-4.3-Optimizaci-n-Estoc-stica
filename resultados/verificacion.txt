@@ -1,0 +1,16 @@
+test_18_configuraciones_y_reproduccion_completa (test_resultados.PruebasResultados.test_18_configuraciones_y_reproduccion_completa) ... ok
+test_trayectorias_y_png (test_resultados.PruebasResultados.test_trayectorias_y_png) ... ok
+test_entradas_invalidas (test_simulacion.PruebasSimulacion.test_entradas_invalidas) ... ok
+test_exportacion_real (test_simulacion.PruebasSimulacion.test_exportacion_real) ... ok
+test_maximo_con_oraculo_independiente (test_simulacion.PruebasSimulacion.test_maximo_con_oraculo_independiente) ... ok
+test_origen_pasos_y_ejes (test_simulacion.PruebasSimulacion.test_origen_pasos_y_ejes) ... ok
+test_repeticiones_promedio_y_limites (test_simulacion.PruebasSimulacion.test_repeticiones_promedio_y_limites) ... ok
+test_reproducibilidad_y_prefijo_entre_lotes (test_simulacion.PruebasSimulacion.test_reproducibilidad_y_prefijo_entre_lotes) ... ok
+test_todas_caminatas_con_oraculo (test_simulacion.PruebasSimulacion.test_todas_caminatas_con_oraculo) ... ok
+test_uniformidad (test_simulacion.PruebasSimulacion.test_uniformidad) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 6.548s
+
+OK
+GUI OK: inicio, simulación 1D/2D, tabla, promedio, exportación individual/resumen y rechazo de entrada inválida.
